@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+@font-face {
+    font-family: SCGumKids;
+    src: url(media/sc_gum_kids/SC_Gum_Kids.ttf);
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  line-height: 3em;
+}
+
+h3 {
+  font-family: SCGumKids;
+  letter-spacing: 0.2em;
+}
+
+.navbar-default {
+  margin-bottom: 0px;
+  height: 90px;
+}
+
+.navbar-nav li a {
+  line-height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+  height: 600px;
+  background-image: url(media/girl-doing-dish.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 25%;
+}
+
+.tall-div {
+  padding: 100px 0px;
+}
+
+.shadow {
+  	-webkit-box-shadow: 0 8px 50px -6px black;
+  	   -moz-box-shadow: 0 8px 50px -6px black;
+  	        box-shadow: 0 8px 50px -6px black;
+}
+
+.blue {
+  background-color: #05B1BF;
+}
+
+.blue-text{
+  color: #05B1BF;
+}
+
+.green {
+  background-color: #82C458;
+}
+
+.white {
+  background-color: white;
+}
+
+.white-text {
+  color: white;
+}
+
+.pink {
+  background-color: #ED3C84;
+}
+
+.text-box {
+  width: 600px;
+}
