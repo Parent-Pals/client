@@ -75,3 +75,10 @@ h3 {
 .text-box {
   width: 600px;
 }
+
+.active {
+  background-color: #D3D7D7;
+}
+.text-box h3 {
+  letter-spacing: 0.3em;
+}
