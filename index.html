@@ -2,76 +2,97 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Little Helpers</title>
   </head>
   <body>
-    <nav class="navbar navbar-default white shadow">
-      <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" href="#"><img src="media/logo1.png" alt="Little Helpers Logo"></a>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Registration</a></li>
-          <li><a href="#">Login</a></li>
+    <nav class="navbar nav-fixed navbar-toggleable-md navbar-light bg-faded white shadow">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <a class="navbar-brand" href="#">
+      <img src="media/logo.png" width="225" height="60" class="d-inline-block align-top" alt="">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              LOGIN
+            </button>
+          </li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-  <div class="jumbotron">
-  <div class="container">
-  </div>
-</div>
-<main>
-  <div class="row">
-    <div class="text-center tall-div blue" id="chores">
-      <div class="container text-box">
-        <img src="media/fbroom.png">
-        <h3 class="white-text">CHORES</h3>
-        <p class="white-text">
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        </p>
       </div>
-    </div>
-    <div class="text-center tall-div shadow" id="points">
-        <div class="container text-box">
-          <img src="media/fpoints.png">
-          <h3 class="blue-text">POINTS</h3>
-          <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          </p>
-        </div>
-      </div>
-    <div class="text-center tall-div green" id="rewards">
-      <div class="container text-box">
-          <img src="media/ftrophy.png">
-          <h3 class="white-text">REWARDS</h3>
-          <p class="white-text">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          </p>
-        </div>
-    </div>
-    <div class="text-center tall-div pink" id="footer">
+    </nav>
+    <!-- <div class="jumbotron jumbotron-fluid">
       <div class="container">
-          <h3 class="white-text">FOOTER</h3>
+      </div>
+    </div> -->
+    <main class="container-fluid">
+      <div class="row align-items-center">
+        <div class="tall-div blue col-lg-12" id="chores">
+          <div class="text-center container col-lg-6">
+            <img src="media/fbroom.png" class="icon">
+            <h3 class="white-text">CHORES</h3>
+            <p class="white-text">
+              Parents can set the chores for their children, as well as the point value for those chores, as well as marking whether or not the chores were completed, which will bank those points for the individual child.  A child, in similar fashion, can see what chores need to be completed and their point values, but cannot set chores for themselves.
+          </div>
         </div>
-    </div>
-  </div>
-</main>
+        <div class="tall-div col-lg-12 shadow" id="points">
+            <div class="text-center container col-lg-6">
+              <img src="media/fpoints.png" class="icon">
+              <h3 class="blue-text">POINTS</h3>
+              <p>
+                Parents can see how many points their children have accrued, as well as see a brief history of each child’s completed tasks.  Children, meanwhile, will see their own personal point “bank”, as well as their own chore history.
+              </p>
+            </div>
+          </div>
+        <div class="tall-div green col-lg-12" id="rewards">
+          <div class="text-center container col-lg-6">
+              <img src="media/ftrophy.png" class="icon">
+              <h3 class="white-text">REWARDS</h3>
+              <p class="white-text">
+                Parents can set rewards and their point values for each child on this page.  Similarly, a child can make a request for a particular reward (pending parental approval), as well as the remaining points towards each reward.  Also, a parent will be able to redeem points for their child if they meet the needed points for a particular reward.
+            </div>
+        </div>
+        <div class="pink col-lg-12 shadow" id="footer">
+          <div class="text-center container col-lg-6">
+              <h3 class="white-text">CONTACT US</h3>
+            </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <a class="navbar-brand" href="#">
+                <img src="media/logo.png" width="250" height="70" class="d-inline-block align-top" alt="">
+              </a>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block col-12">Login</button>
+                <button type="submit" class="btn btn-secondary btn-block col-12">Create Account</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" charset="utf-8"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="script.js" charset="utf-8"></script>
   </body>
 </html>

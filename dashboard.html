@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Little Helpers</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded white shadow">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <a class="navbar-brand" href="#">
+      <img src="media/logo.png" width="225" height="60" class="d-inline-block align-top" alt="">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <span class="navbar-text">
+        Welcome {{parentName}}!
+      </span>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#addChildModal">Add Child</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              LOGOUT
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="container-fluid">
+      <div class="row" id="children">
+
+      </div>
+      <div class="modal fade" id="addChildModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <a class="navbar-brand" href="#">
+                <img src="media/logo.png" width="250" height="70" class="d-inline-block align-top" alt="">
+              </a>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <input type="input" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Childs Name">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block col-12">Add Child</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+    <script id="parent-template" type="text/x-handlebars-template">
+      <span class="navbar-text">
+        <p>Welcome {{parentName}}!</p>
+      </span>
+    </script>
+
+    <script id="child-template" type="text/x-handlebars-template">
+      <a href="https://cnn.com" class="mid-div blue col-lg-6 text-center">
+            <h1 class="white-text">{{childName}}</h1>
+            <h3 class="white-text">{{childPoints}} Points!</h3>
+            <button class="btn btn-primary btn-sm">Delete</button>
+      </a>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" charset="utf-8"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="script.js" charset="utf-8"></script>
+  </body>
+</html>
