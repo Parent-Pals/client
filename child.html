@@ -34,23 +34,11 @@
       </div>
     </nav>
     <main class="container-fluid">
-      <div class="row">
-        <div class=" blue col-lg-12 text-center">
-            <h3 class="white-text">Jacis Rewards</h3>
-        </div>
-        <div class="progress col-lg-12">
-          <div class="progress-bar green progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%; height: 100px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><h3>{{Reward}}!</h3></div>
-        </div>
-        <div class="progress col-lg-12">
-          <div class="progress-bar pink progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%; height: 100px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><h3>{{Reward}}!</h3></div>
-        </div>
-        <div class="progress col-lg-12">
-          <div class="progress-bar blue progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%; height: 100px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><h3>{{Reward}}!</h3></div>
-        </div>
-        <div class=" blue col-lg-12 text-center">
-            <h3 class="white-text">Jacis Chores</h3>
-        </div>
+      <div class="blue text-center white-text col-lg-12">
+        <h1>Rewards</h1>
       </div>
+      <div class="row" id="rewards"></div>
+
       <div class="modal fade" id="addRewardModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
@@ -93,9 +81,18 @@
         </div>
       </div>
   </main>
+
+  <script id="reward-template" type="text/x-handlebars-template">
+    <a href="https://cnn.com" class="mid-div blue col-lg-6 text-center">
+          <h1 class="white-text">{{rewardName}}</h1>
+          <h3 class="white-text">Costs {{rewardPoints}} Points!</h3>
+          <button class="btn btn-primary btn-sm">Redeem</button>
+    </a>
+  </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" charset="utf-8"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="script.js" charset="utf-8"></script>
+    <script src="child.js" charset="utf-8"></script>
   </body>
 </html>
