@@ -34,6 +34,9 @@
       </div>
     </nav>
     <main class="container-fluid">
+      <div class="blue text-center white-text col-lg-12" id="childName">
+
+      </div>
       <div class="blue text-center white-text col-lg-12">
         <h1>Rewards</h1>
       </div>
@@ -100,6 +103,10 @@
           <h3 class="white-text">Worth {{chorePoints}} Points!</h3>
           <button class="btn btn-primary btn-sm">Redeem</button>
     </a>
+  </script>
+
+  <script id="child-template" type="text/x-handlebars-template">
+      <h1 class="white-text">{{childName}} has {{childPoints}} Points!</h1>
   </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" charset="utf-8"></script>

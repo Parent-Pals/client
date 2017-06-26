@@ -1,7 +1,7 @@
 $(document).ready(function(){
   var apiUrl = "https://littlehelpers.herokuapp.com/parent/2/1";
   $.getJSON(apiUrl).then(function(data){
-    // console.log(data)
+    console.log(data)
     for(var i = 0; i < data[1].length; i++){
       var rewardSource = $("#reward-template").html();
       var rewardTemplate = Handlebars.compile(rewardSource);
@@ -20,5 +20,14 @@ $(document).ready(function(){
       }
       $("#chores").append(choreTemplate(choreContext))
     }
+    for (var i = 0; i < data[0].length; i++) {
+      var childSource = $("#child-template").html();
+      var childTemplate = Handlebars.compile(childSource);
+      var childContext = {
+        "childName": data[0][i].name,
+        "childPoints": data[0][i].points
+      }
+    }
+    $('#childName').append(childTemplate(childContext));
   })
 })
