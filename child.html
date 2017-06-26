@@ -38,6 +38,10 @@
         <h1>Rewards</h1>
       </div>
       <div class="row" id="rewards"></div>
+      <div class="blue text-center white-text col-lg-12">
+        <h1>Chores</h1>
+      </div>
+      <div class="row" id="chores"></div>
 
       <div class="modal fade" id="addRewardModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
@@ -86,6 +90,14 @@
     <a href="https://cnn.com" class="mid-div blue col-lg-6 text-center">
           <h1 class="white-text">{{rewardName}}</h1>
           <h3 class="white-text">Costs {{rewardPoints}} Points!</h3>
+          <button class="btn btn-primary btn-sm">Redeem</button>
+    </a>
+  </script>
+
+  <script id="chore-template" type="text/x-handlebars-template">
+    <a href="https://cnn.com" class="mid-div blue col-lg-6 text-center">
+          <h1 class="white-text">{{choreName}}</h1>
+          <h3 class="white-text">Worth {{chorePoints}} Points!</h3>
           <button class="btn btn-primary btn-sm">Redeem</button>
     </a>
   </script>

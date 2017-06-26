@@ -1,7 +1,8 @@
 $(document).ready(function(){
   var apiUrl = "https://littlehelpers.herokuapp.com/parent/2/1";
   $.getJSON(apiUrl).then(function(data){
-    for(var i = 0; i < data.length; i++){
+    // console.log(data)
+    for(var i = 0; i < data[1].length; i++){
       var rewardSource = $("#reward-template").html();
       var rewardTemplate = Handlebars.compile(rewardSource);
       var rewardContext = {
@@ -9,6 +10,15 @@ $(document).ready(function(){
         "rewardPoints": data[1][i].point_value
       }
       $("#rewards").append(rewardTemplate(rewardContext))
+    }
+    for(var i=0; i < data[2].length; i++){
+      var choreSource = $("#chore-template").html();
+      var choreTemplate = Handlebars.compile(choreSource);
+      var choreContext = {
+        "choreName": data[2][i].name,
+        "chorePoints": data[2][i].point_value
+      }
+      $("#chores").append(choreTemplate(choreContext))
     }
   })
 })
