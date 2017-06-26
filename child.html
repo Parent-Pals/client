@@ -33,15 +33,15 @@
         </ul>
       </div>
     </nav>
-    <main class="container-fluid">
-      <div class="blue text-center white-text col-lg-12" id="childName">
+    <main>
+      <div class="green small-div text-center white-text col-lg-12" id="childName">
 
       </div>
-      <div class="blue text-center white-text col-lg-12">
+      <div class="pink small-div text-center white-text col-lg-12">
         <h1>Rewards</h1>
       </div>
       <div class="row" id="rewards"></div>
-      <div class="blue text-center white-text col-lg-12">
+      <div class="pink small-div text-center white-text col-lg-12">
         <h1>Chores</h1>
       </div>
       <div class="row" id="chores"></div>
@@ -79,7 +79,7 @@
                   <input type="input" class="form-control" aria-describedby="emailHelp" placeholder="Chore Name">
                 </div>
                 <div class="form-group">
-                  <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="Percentage Worth">
+                  <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="Point Worth">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block col-12">Add Chore</button>
               </form>
@@ -90,7 +90,7 @@
   </main>
 
   <script id="reward-template" type="text/x-handlebars-template">
-    <a href="https://cnn.com" class="mid-div blue col-lg-6 text-center">
+    <a href="https://cnn.com" class="mid-div blue col-lg-4 text-center">
           <h1 class="white-text">{{rewardName}}</h1>
           <h3 class="white-text">Costs {{rewardPoints}} Points!</h3>
           <button class="btn btn-primary btn-sm">Redeem</button>
@@ -98,7 +98,7 @@
   </script>
 
   <script id="chore-template" type="text/x-handlebars-template">
-    <a href="https://cnn.com" class="mid-div blue col-lg-6 text-center">
+    <a href="https://cnn.com" class="mid-div blue col-lg-4 text-center">
           <h1 class="white-text">{{choreName}}</h1>
           <h3 class="white-text">Worth {{chorePoints}} Points!</h3>
           <button class="btn btn-primary btn-sm">Redeem</button>

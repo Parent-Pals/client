@@ -67,6 +67,10 @@ h1, h2, h3 {
   background-color:#82C458;
 }
 
+.small-div {
+  padding: 10px 0px;
+}
+
 .icon{
   margin-bottom: 20px;
 }
