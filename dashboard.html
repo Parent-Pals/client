@@ -17,12 +17,6 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#addChildModal">Add Child</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
-          </li>
-          <li class="nav-item">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
               LOGOUT
             </button>
@@ -31,8 +25,14 @@
       </div>
     </nav>
     <main>
-      <div class="row" id="children">
-
+      <div class="row no-gutters" id="children">
+        <a href class="col-lg-12 text-center" data-toggle="modal" data-target="#addChildModal">
+          <div class="card grey white-text">
+            <div class="card-block">
+              <h1 class="card-title">+ Add Child</h1>
+            </div>
+          </div>
+        </a>
       </div>
       <div class="modal fade" id="addChildModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
@@ -45,7 +45,7 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <input type="input" class="form-control"  aria-describedby="enterChild" placeholder="Childs Name" id="childNameAdd">
+                  <input type="input" class="form-control"  aria-describedby="enterChild" placeholder="Child's Name" id="childNameAdd">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block col-12" id="addChild">Add Child</button>
               </form>
@@ -57,16 +57,20 @@
 
     <script id="parent-template" type="text/x-handlebars-template">
       <span class="navbar-text">
-        Welcome {{parentName}}!
+        Welcome back {{parentName}}!
       </span>
     </script>
 
     <script id="child-template" type="text/x-handlebars-template">
-      <a href="" class="mid-div blue col-lg-6 text-center">
-            <h1 class="white-text">{{childName}}</h1>
-            <h3 class="white-text">{{childPoints}} Points!</h3>
-            <button class="btn btn-primary btn-sm" id="deleteChild">Delete</button>
-      </a>
+        <div class="col-lg-12 text-center">
+          <div class="card blue white-text">
+            <a href="#" class="col-12 text-right white-text">x</a>
+            <div class="card-block">
+              <h1 class="card-title">{{childName}}</h1>
+              <h5>has {{childPoints}} points!</h5>
+            </div>
+          </div>
+        </div>
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" charset="utf-8"></script>

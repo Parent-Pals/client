@@ -6,17 +6,19 @@ $(document).ready(function(){
     var parentContext = {
       "parentName": data[0][0].name
     }
-    $("#navbarSupportedContent").prepend(parentTemplate(parentContext))
+    $("#navbarSupportedContent").append(parentTemplate(parentContext))
 
     var childSource   = $("#child-template").html();
     var childTemplate = Handlebars.compile(childSource);
-    for(var i=0; i < data.length; i++){
+    for(var i=0; i < data[1].length; i++){
         var childContext = {
           "childName": data[1][i].name,
           "childPoints": data[1][i].points
         }
-          $("#children").append(childTemplate(childContext))
+          $("#children").prepend(childTemplate(childContext))
     }
+
+
   })
   $("#addChild").click(function(){
     var childName = $("#childNameAdd").val();

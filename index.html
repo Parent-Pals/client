@@ -20,6 +20,9 @@
             <a class="nav-link" href="#" data-toggle="modal" data-target="#createAccountModal">Register</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
@@ -36,24 +39,24 @@
     </div>
     <main class="container-fluid">
       <div class="row align-items-center">
-        <div class="tall-div blue col-lg-12" id="chores">
+        <div class="tall-div blue col-lg-12 shadow" id="tasks">
           <div class="text-center container col-lg-6">
             <img src="media/fbroom.png" class="icon">
-            <h3 class="white-text">CHORES</h3>
+            <h3 class="white-text">TASKS</h3>
             <p class="white-text">
-              Parents can set the chores for their children, as well as the point value for those chores, as well as marking whether or not the chores were completed, which will bank those points for the individual child.  A child, in similar fashion, can see what chores need to be completed and their point values, but cannot set chores for themselves.
+              Parents can set the tasks for their children, as well as the point value for those tasks, as well as marking whether or not the tasks were completed, which will bank those points for the individual child.  A child, in similar fashion, can see what tasks need to be completed and their point values, but cannot set tasks for themselves.
           </div>
         </div>
-        <div class="tall-div col-lg-12 shadow" id="points">
+        <div class="tall-div col-lg-12" id="points">
           <div class="text-center container col-lg-6">
             <img src="media/fpoints.png" class="icon">
             <h3 class="blue-text">POINTS</h3>
             <p>
-                Parents can see how many points their children have accrued, as well as see a brief history of each child’s completed tasks.  Children, meanwhile, will see their own personal point “bank”, as well as their own chore history.
+                Parents can see how many points their children have accrued, as well as see a brief history of each child’s completed tasks.  Children, meanwhile, will see their own personal point “bank”, as well as their own task history.
             </p>
           </div>
         </div>
-        <div class="tall-div green col-lg-12" id="rewards">
+        <div class="tall-div green col-lg-12 shadow" id="rewards">
           <div class="text-center container col-lg-6">
             <img src="media/ftrophy.png" class="icon">
             <h3 class="white-text">REWARDS</h3>
@@ -61,7 +64,7 @@
                 Parents can set rewards and their point values for each child on this page.  Similarly, a child can make a request for a particular reward (pending parental approval), as well as the remaining points towards each reward.  Also, a parent will be able to redeem points for their child if they meet the needed points for a particular reward.</p>
           </div>
         </div>
-        <div class="pink col-lg-12 shadow" id="footer">
+        <div class="pink col-lg-12" id="footer">
           <div class="text-center container col-lg-6">
             <h3 class="white-text">CONTACT US</h3>
           </div>
@@ -113,35 +116,6 @@
                 </div>
                 <button type="submit" class="btn btn-secondary btn-block col-12" id="createAccountButton">Create Account</button>
                 <p class="passwordError text-center">Your passwords do not match!</p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-            <a class="navbar-brand" href="#">
-              <img src="media/logo.png" width="250" height="70" class="d-inline-block align-top" alt="">
-            </a>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <input type="username" class="form-control" id="inputUserName" aria-describedby="userHelp" placeholder="Username">
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Email">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" id="inputPassword2" placeholder="Confirm Password">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block col-12">Login</button>
-                <button type="submit" class="btn btn-secondary btn-block col-12">Create Account</button>
               </form>
             </div>
           </div>

@@ -9,16 +9,16 @@ $(document).ready(function(){
         "rewardName": data[1][i].name,
         "rewardPoints": data[1][i].point_value
       }
-      $("#rewards").append(rewardTemplate(rewardContext))
+      $("#childRewards").prepend(rewardTemplate(rewardContext))
     }
     for(var i=0; i < data[2].length; i++){
-      var choreSource = $("#chore-template").html();
-      var choreTemplate = Handlebars.compile(choreSource);
-      var choreContext = {
-        "choreName": data[2][i].name,
-        "chorePoints": data[2][i].point_value
+      var taslSource = $("#task-template").html();
+      var taskTemplate = Handlebars.compile(taskSource);
+      var taskContext = {
+        "taskName": data[2][i].name,
+        "taskPoints": data[2][i].point_value
       }
-      $("#chores").append(choreTemplate(choreContext))
+      $("#childTasks").prepend(taskTemplate(taskContext))
     }
     for (var i = 0; i < data[0].length; i++) {
       var childSource = $("#child-template").html();
@@ -30,4 +30,21 @@ $(document).ready(function(){
     }
     $('#childName').append(childTemplate(childContext));
   })
+
+    $("#addReward").click(function(){
+      var rewardObject = {
+        name: $("rewardName").val(),
+        point_value: $("rewardPointWorth").val()
+    }
+      $.post('https://littlehelpers.herokuapp.com/parent/{id}/{childID}/reward', rewardObject);
+    })
+
+    $("#addTask").click(function(){
+      var rewardObject = {
+        name: $("taskName").val(),
+        point_value: $("chorePointWorth").val()
+    }
+      $.post('https://littlehelpers.herokuapp.com/parent/{id}/{childID}/task', rewardObject);
+    })
+
 })

@@ -17,15 +17,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#addRewardModal">Add Reward</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#addChoreModal">Add Chore</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
-          </li>
-          <li class="nav-item">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
               LOGOUT
             </button>
@@ -34,17 +25,31 @@
       </div>
     </nav>
     <main>
-      <div class="green small-div text-center white-text col-lg-12" id="childName">
-
-      </div>
       <div class="pink small-div text-center white-text col-lg-12">
         <h1>Rewards</h1>
       </div>
-      <div class="row" id="childRewards"></div>
-      <div class="pink small-div text-center white-text col-lg-12">
-        <h1>Chores</h1>
+      <div class="row no-gutters" id="childRewards">
+        <a href class="col-lg-12 text-center" data-toggle="modal" data-target="#addRewardModal">
+          <div class="card grey white-text">
+            <div class="card-block">
+              <h1 class="card-title">+ Add Reward</h1>
+            </div>
+          </div>
+        </a>
       </div>
-      <div class="row" id="childChores"></div>
+      <div class="pink small-div text-center white-text col-lg-12">
+        <h1>Tasks</h1>
+      </div>
+      <div class="row no-gutters" id="childTasks">
+          <a href="" class="col-lg-12 text-center" data-toggle="modal" data-target="#addTaskModal">
+            <div class="card grey white-text">
+              <div class="card-block">
+                <h1 class="card-title">+ Add Task</h1>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
 
       <div class="modal fade" id="addRewardModal" tabindex="-1" role="dialog" aria-labelledby="addRewardModel" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
@@ -57,15 +62,18 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <input type="input" class="form-control" aria-describedby="addReward" placeholder="Reward Name">
+                  <input type="input" class="form-control" aria-describedby="addReward" placeholder="Reward Name" id="rewardName">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block col-12">Add Reward</button>
+                <div class="form-group">
+                  <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="Point Worth" min="1" max="50" id="rewardPointWorth">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block col-12" id="addReward">Add Reward</button>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <div class="modal fade" id="addChoreModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -76,12 +84,12 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <input type="input" class="form-control" aria-describedby="emailHelp" placeholder="Chore Name">
+                  <input type="input" class="form-control" aria-describedby="emailHelp" placeholder="Task Name" id="taskName">
                 </div>
                 <div class="form-group">
-                  <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="Point Worth">
+                  <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="Point Worth" min="1" max="50" id="taskPointWorth">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block col-12">Add Chore</button>
+                <button type="submit" class="btn btn-primary btn-block col-12">Add Task</button>
               </form>
             </div>
           </div>
@@ -90,23 +98,31 @@
   </main>
 
     <script id="reward-template" type="text/x-handlebars-template">
-      <a href="" class="mid-div blue col-lg-4 text-center">
-            <h1 class="white-text">{{rewardName}}</h1>
-            <h3 class="white-text">Costs {{rewardPoints}} Points!</h3>
-            <button class="btn btn-primary btn-sm">Redeem</button>
-      </a>
+        <div class="col-lg-12 text-center">
+          <div class="card blue white-text">
+            <a href="#" class="col-12 text-right white-text">&#10003;</a>
+            <div class="card-block">
+              <h1 class="card-title">{{rewardName}}</h1>
+              <h3 class="card-text">You need {{rewardPoints}} points!</h3>
+            </div>
+          </div>
+        </div>
     </script>
 
-    <script id="chore-template" type="text/x-handlebars-template">
-      <a href="" class="mid-div blue col-lg-4 text-center">
-            <h1 class="white-text">{{choreName}}</h1>
-            <h3 class="white-text">Worth {{chorePoints}} Points!</h3>
-            <button class="btn btn-primary btn-sm">Redeem</button>
-      </a>
+    <script id="task-template" type="text/x-handlebars-template">
+        <div class="col-lg-12 text-center">
+          <div class="card blue white-text">
+            <a href="#" class="col-12 text-right white-text">&#10003;</a>
+            <div class="card-block">
+              <h1 class="card-title">{{taskName}}</h1>
+              <h3 class="card-text">Earn {{taskPoints}} points!</h3>
+            </div>
+          </div>
+        </div>
     </script>
 
     <script id="child-template" type="text/x-handlebars-template">
-        <h1 class="white-text">{{childName}} has {{childPoints}} Points!</h1>
+        <span class="navbar-text">{{childName}} has {{childPoints}} Points!</span>
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" charset="utf-8"></script>

@@ -12,6 +12,10 @@
   background-color: #05B1BF;
 }
 
+.grey {
+  background-color: #bdc3c7;
+}
+
 .blue-text {
   color: #05B1BF;
 }
@@ -47,7 +51,7 @@ p {
   line-height: 3em;
 }
 
-h1, h2, h3 {
+h1, h2, h3,h4, h5 {
   font-family: SCGumKids;
   letter-spacing: 0.2em;
 }
@@ -56,7 +60,7 @@ h1, h2, h3 {
   padding: 150px 0px;
 }
 
-.mid-div {
+/*.mid-div {
   padding: 100px 0px;
   border: 2px solid white;
   transition: 1s;
@@ -65,7 +69,7 @@ h1, h2, h3 {
 .mid-div:hover {
   z-index: 1;
   background-color:#82C458;
-}
+}*/
 
 .small-div {
   padding: 10px 0px;
@@ -131,15 +135,11 @@ color: #ED3C84 !important;
 /******JUMBOTRON******/
   .jumbotron {
     background: #000 url("media/girl-doing-dish.jpg");
-<<<<<<< HEAD
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 550px;
     width: 100%;
     margin-bottom: 0px !important;
-=======
-    height: 500px;
-    width: 100%;
-    margin-bottom: 0px;
->>>>>>> 6de5c0a4b3da501d9090cbaf1594b78bea00d885
 }
 
 
@@ -154,3 +154,13 @@ color: #ED3C84 !important;
   color:red;
   display: none;
 }
+
+.card{
+  border: 2px solid white;
+  transition: 1s;
+}
+
+.card:hover{
+  opacity: 0.8;
+  z-index: 1;
+  }
