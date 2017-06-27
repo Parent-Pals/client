@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $("#createAccountButton").click(function(){
     event.preventDefault()
+    
     var signUp = {
       password: $("#password").val(),
       passwordConfirmation: $("#passwordConfirmation").val(),

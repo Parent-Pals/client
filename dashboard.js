@@ -10,12 +10,12 @@ $(document).ready(function(){
 
     var childSource   = $("#child-template").html();
     var childTemplate = Handlebars.compile(childSource);
-    for(var i=0; i < data.length; i++){
+    for(var i=0; i < data[1].length; i++){
         var childContext = {
           "childName": data[1][i].name,
           "childPoints": data[1][i].points
         }
-          $("#children").append(childTemplate(childContext))
+          $("#children").prepend(childTemplate(childContext))
     }
   })
   $("#addChild").click(function(){
