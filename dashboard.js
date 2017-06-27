@@ -17,6 +17,8 @@ $(document).ready(function(){
         }
           $("#children").prepend(childTemplate(childContext))
     }
+
+
   })
   $("#addChild").click(function(){
     var childName = $("#childNameAdd").val();
