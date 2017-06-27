@@ -6,7 +6,7 @@ $(document).ready(function(){
     var parentContext = {
       "parentName": data[0][0].name
     }
-    $("#navbarSupportedContent").prepend(parentTemplate(parentContext))
+    $("#navbarSupportedContent").append(parentTemplate(parentContext))
 
     var childSource   = $("#child-template").html();
     var childTemplate = Handlebars.compile(childSource);
@@ -17,6 +17,8 @@ $(document).ready(function(){
         }
           $("#children").prepend(childTemplate(childContext))
     }
+
+
   })
   $("#addChild").click(function(){
     var childName = $("#childNameAdd").val();
