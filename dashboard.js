@@ -1,13 +1,18 @@
-$(document).ready(function(){
-  var apiUrl = `https://littlehelpers.herokuapp.com/parent/${localStorage.id}`;
-  $.getJSON(apiUrl).then(function(data){
+$(document).ready(function() {
+  API_URL = "https://littlehelpers.herokuapp.com/parent/";
+  $.ajax({
+    url: `${API_URL}2`,
+    headers:{'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNDk4NTk0NzMxLCJleHAiOjE0OTg2MDE5MzF9.4lIV67OwsP8f9btLNoDwFxah_TSkpsExcJoEUsfI7O4`},
+    type: 'GET'
+  })
+  .then(function(data) {
+    console.log(data)
     var parentSource = $("#parent-template").html();
     var parentTemplate = Handlebars.compile(parentSource);
     var parentContext = {
       "parentName": data[0][0].name
     }
-    $("#navbarSupportedContent").append(parentTemplate(parentContext))
-
+    $("#navbarSupportedContent").prepend(parentTemplate(parentContext))
     var childSource   = $("#child-template").html();
     var childTemplate = Handlebars.compile(childSource);
     for(var i=0; i < data[1].length; i++){
@@ -17,16 +22,21 @@ $(document).ready(function(){
         }
           $("#children").prepend(childTemplate(childContext))
     }
-
-
-  })
+  });
   $("#addChild").click(function(){
     var childName = $("#childNameAdd").val();
-    return $.post(`https://littlehelpers.herokuapp.com/parent/${id}/`, childName)
-  })
-
+    return   $.ajax({
+        url: `${API_URL}2`,
+        headers:{'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNDk4NTk0NzMxLCJleHAiOjE0OTg2MDE5MzF9.4lIV67OwsP8f9btLNoDwFxah_TSkpsExcJoEUsfI7O4`},
+        type: 'POST',
+        data: {childName}
+      })
+  });
   $("#deleteChild").click(function(){
-    return $.delete(`https://littlehelpers.herokuapp.com/parent/${id}/${id}`);
-  })
-  }
-)
+    return   $.ajax({
+        url: `${API_URL}2/1`,
+        headers:{'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNDk4NTk0NzMxLCJleHAiOjE0OTg2MDE5MzF9.4lIV67OwsP8f9btLNoDwFxah_TSkpsExcJoEUsfI7O4`},
+        type: 'DELETE'
+      })
+    });
+  });
