@@ -40,13 +40,13 @@
       <div class="pink small-div text-center white-text col-lg-12">
         <h1>Rewards</h1>
       </div>
-      <div class="row" id="rewards"></div>
+      <div class="row" id="childRewards"></div>
       <div class="pink small-div text-center white-text col-lg-12">
         <h1>Chores</h1>
       </div>
-      <div class="row" id="chores"></div>
+      <div class="row" id="childChores"></div>
 
-      <div class="modal fade" id="addRewardModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal fade" id="addRewardModal" tabindex="-1" role="dialog" aria-labelledby="addRewardModel" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -57,7 +57,7 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <input type="input" class="form-control" aria-describedby="emailHelp" placeholder="Reward Name">
+                  <input type="input" class="form-control" aria-describedby="addReward" placeholder="Reward Name">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block col-12">Add Reward</button>
               </form>
@@ -89,25 +89,25 @@
       </div>
   </main>
 
-  <script id="reward-template" type="text/x-handlebars-template">
-    <a href="https://cnn.com" class="mid-div blue col-lg-4 text-center">
-          <h1 class="white-text">{{rewardName}}</h1>
-          <h3 class="white-text">Costs {{rewardPoints}} Points!</h3>
-          <button class="btn btn-primary btn-sm">Redeem</button>
-    </a>
-  </script>
+    <script id="reward-template" type="text/x-handlebars-template">
+      <a href="" class="mid-div blue col-lg-4 text-center">
+            <h1 class="white-text">{{rewardName}}</h1>
+            <h3 class="white-text">Costs {{rewardPoints}} Points!</h3>
+            <button class="btn btn-primary btn-sm">Redeem</button>
+      </a>
+    </script>
 
-  <script id="chore-template" type="text/x-handlebars-template">
-    <a href="https://cnn.com" class="mid-div blue col-lg-4 text-center">
-          <h1 class="white-text">{{choreName}}</h1>
-          <h3 class="white-text">Worth {{chorePoints}} Points!</h3>
-          <button class="btn btn-primary btn-sm">Redeem</button>
-    </a>
-  </script>
+    <script id="chore-template" type="text/x-handlebars-template">
+      <a href="" class="mid-div blue col-lg-4 text-center">
+            <h1 class="white-text">{{choreName}}</h1>
+            <h3 class="white-text">Worth {{chorePoints}} Points!</h3>
+            <button class="btn btn-primary btn-sm">Redeem</button>
+      </a>
+    </script>
 
-  <script id="child-template" type="text/x-handlebars-template">
-      <h1 class="white-text">{{childName}} has {{childPoints}} Points!</h1>
-  </script>
+    <script id="child-template" type="text/x-handlebars-template">
+        <h1 class="white-text">{{childName}} has {{childPoints}} Points!</h1>
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" charset="utf-8"></script>

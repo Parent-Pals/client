@@ -46,9 +46,9 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <input type="input" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Childs Name">
+                  <input type="input" class="form-control"  aria-describedby="enterChild" placeholder="Childs Name" id="childNameAdd">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block col-12">Add Child</button>
+                <button type="submit" class="btn btn-primary btn-block col-12" id="addChild">Add Child</button>
               </form>
             </div>
           </div>
@@ -63,10 +63,10 @@
     </script>
 
     <script id="child-template" type="text/x-handlebars-template">
-      <a href="https://cnn.com" class="mid-div blue col-lg-6 text-center">
+      <a href="" class="mid-div blue col-lg-6 text-center">
             <h1 class="white-text">{{childName}}</h1>
             <h3 class="white-text">{{childPoints}} Points!</h3>
-            <button class="btn btn-primary btn-sm">Delete</button>
+            <button class="btn btn-primary btn-sm" id="deleteChild">Delete</button>
       </a>
     </script>
 

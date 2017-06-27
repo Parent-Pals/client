@@ -129,15 +129,22 @@ color: #ED3C84 !important;
 
 
 /******JUMBOTRON******/
-  /*.jumbotron {
+  .jumbotron {
     background: #000 url("media/girl-doing-dish.jpg");
     height: 550px;
-    width: 100%:
-}*/
+    width: 100%;
+    margin-bottom: 0px !important;
+}
 
 
 /******FOOTER******/
 #footer{
   height:200px;
   padding: 100px 0px;
+}
+
+/******Password Error******/
+.passwordError{
+  color:red;
+  display: none;
 }

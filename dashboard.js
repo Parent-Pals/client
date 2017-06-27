@@ -18,4 +18,13 @@ $(document).ready(function(){
           $("#children").append(childTemplate(childContext))
     }
   })
-})
+  $("#addChild").click(function(){
+    var childName = $("#childNameAdd").val();
+    return $.post(`https://littlehelpers.herokuapp.com/parent/${id}/`, childName)
+  })
+
+  $("#deleteChild").click(function(){
+    return $.delete(`https://littlehelpers.herokuapp.com/parent/${id}/${id}`);
+  })
+  }
+)
