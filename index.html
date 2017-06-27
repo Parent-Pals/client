@@ -11,10 +11,10 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    <a class="navbar-brand" href="#">
-      <img src="media/logo.png" width="225" height="60" class="d-inline-block align-top" alt="">
-    </a>
-    <div class="collapse navbar-collapse align-right" id="navbarSupportedContent">
+      <a class="navbar-brand" href="#">
+        <img src="media/logo.png" width="225" height="60" class="d-inline-block align-top" alt="">
+      </a>
+      <div class="collapse navbar-collapse align-right" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">Register</a>
@@ -45,26 +45,26 @@
           </div>
         </div>
         <div class="tall-div col-lg-12 shadow" id="points">
-            <div class="text-center container col-lg-6">
-              <img src="media/fpoints.png" class="icon">
-              <h3 class="blue-text">POINTS</h3>
-              <p>
+          <div class="text-center container col-lg-6">
+            <img src="media/fpoints.png" class="icon">
+            <h3 class="blue-text">POINTS</h3>
+            <p>
                 Parents can see how many points their children have accrued, as well as see a brief history of each child’s completed tasks.  Children, meanwhile, will see their own personal point “bank”, as well as their own chore history.
-              </p>
-            </div>
+            </p>
           </div>
+        </div>
         <div class="tall-div green col-lg-12" id="rewards">
           <div class="text-center container col-lg-6">
-              <img src="media/ftrophy.png" class="icon">
-              <h3 class="white-text">REWARDS</h3>
-              <p class="white-text">
-                Parents can set rewards and their point values for each child on this page.  Similarly, a child can make a request for a particular reward (pending parental approval), as well as the remaining points towards each reward.  Also, a parent will be able to redeem points for their child if they meet the needed points for a particular reward.
-            </div>
+            <img src="media/ftrophy.png" class="icon">
+            <h3 class="white-text">REWARDS</h3>
+            <p class="white-text">
+                Parents can set rewards and their point values for each child on this page.  Similarly, a child can make a request for a particular reward (pending parental approval), as well as the remaining points towards each reward.  Also, a parent will be able to redeem points for their child if they meet the needed points for a particular reward.</p>
+          </div>
         </div>
         <div class="pink col-lg-12 shadow" id="footer">
           <div class="text-center container col-lg-6">
-              <h3 class="white-text">CONTACT US</h3>
-            </div>
+            <h3 class="white-text">CONTACT US</h3>
+          </div>
         </div>
       </div>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -90,9 +90,38 @@
           </div>
         </div>
       </div>
-  </main>
+      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+            <a class="navbar-brand" href="#">
+              <img src="media/logo.png" width="250" height="70" class="d-inline-block align-top" alt="">
+            </a>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <input type="username" class="form-control" id="inputUserName" aria-describedby="userHelp" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="inputPassword2" placeholder="Confirm Password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block col-12">Login</button>
+                <button type="submit" class="btn btn-secondary btn-block col-12">Create Account</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" charset="utf-8"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="script.js" charset="utf-8"></script>
+    <script src="index.js" charset="utf-8"></script>
   </body>
 </html>
