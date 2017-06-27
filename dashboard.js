@@ -1,6 +1,12 @@
 $(document).ready(function() {
-  var API_URL = "https://littlehelpers.herokuapp.com/parent/1";
-  $.getJSON(API_URL).then(function(data) {
+  API_URL = "https://littlehelpers.herokuapp.com/parent/";
+  $.ajax({
+    url: `${API_URL}2`,
+    headers:{'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNDk4NTk0NzMxLCJleHAiOjE0OTg2MDE5MzF9.4lIV67OwsP8f9btLNoDwFxah_TSkpsExcJoEUsfI7O4`},
+    type: 'GET'
+  })
+  .then(function(data) {
+    console.log(data)
     var parentSource = $("#parent-template").html();
     var parentTemplate = Handlebars.compile(parentSource);
     var parentContext = {
@@ -17,35 +23,20 @@ $(document).ready(function() {
           $("#children").append(childTemplate(childContext))
     }
   });
-  function getUserInfo(id) {
-    return $.get({
-      url: `${API_URL}/user/${id}`,
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`
-      }
-    });
-  };
   $("#addChild").click(function(){
     var childName = $("#childNameAdd").val();
-    return $.post(`https://littlehelpers.herokuapp.com/parent/${id}/`, childName)
-  })
-  function createChild(id) {
-    return $.post({
-      url: `${API_URL}/user/${id}/${childName}`,
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`
-      }
-    });
-  };
+    return   $.ajax({
+        url: `${API_URL}2`,
+        headers:{'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNDk4NTk0NzMxLCJleHAiOjE0OTg2MDE5MzF9.4lIV67OwsP8f9btLNoDwFxah_TSkpsExcJoEUsfI7O4`},
+        type: 'POST',
+        data: {childName}
+      })
+  });
   $("#deleteChild").click(function(){
-    return $.delete(`https://littlehelpers.herokuapp.com/parent/${id}/${id}`);
-  })
-  function deleteChild(id) {
-    return $.delete({
-      url: `${API_URL}/user/${id}/${id}`,
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`
-      }
+    return   $.ajax({
+        url: `${API_URL}2/1`,
+        headers:{'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNDk4NTk0NzMxLCJleHAiOjE0OTg2MDE5MzF9.4lIV67OwsP8f9btLNoDwFxah_TSkpsExcJoEUsfI7O4`},
+        type: 'DELETE'
+      })
     });
-  };
-})
+  });
