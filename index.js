@@ -13,5 +13,13 @@ $(document).ready(function(){
     } else {
       console.log(return $.post('https://littlehelpers.herokuapp.com/auth/register', signUp))
     }
+    function createUser(id) {
+      return $.post({
+        url: `${API_URL}/user/${id}`,
+        headers: {
+          Authorization: `Bearer ${localStorage.token}`
+        }
+      });
+    };
   })
 })
