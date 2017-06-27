@@ -6,7 +6,7 @@ $(document).ready(function(){
     var parentContext = {
       "parentName": data[0][0].name
     }
-    $("#navbarNavDropdown").prepend(parentTemplate(parentContext))
+    $("#navbarSupportedContent").prepend(parentTemplate(parentContext))
 
     var childSource   = $("#child-template").html();
     var childTemplate = Handlebars.compile(childSource);

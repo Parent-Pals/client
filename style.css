@@ -12,7 +12,7 @@
   background-color: #05B1BF;
 }
 
-.blue-text{
+.blue-text {
   color: #05B1BF;
 }
 
@@ -34,7 +34,7 @@
 
 
 /*******MAIN CONTENT*******/
-a:hover{
+a:hover {
   text-decoration: none;
 }
 
@@ -71,7 +71,7 @@ h1, h2, h3 {
   padding: 10px 0px;
 }
 
-.icon{
+.icon {
   margin-bottom: 20px;
 }
 
@@ -82,31 +82,31 @@ h1, h2, h3 {
 }
 
 /******NAVIGATION*******/
-.navbar{
+.navbar {
   height: 100px;
 }
 
-.nav-item{
+.nav-item {
   margin-right:20px;
   text-transform: uppercase;
   font-weight: 400;
 }
 
-.nav-link{
+.nav-link {
 transition: .5s;
 }
 
-.nav-link:hover{
+.nav-link:hover {
 color: #ED3C84 !important;
 }
 
 /******BUTTONS*******/
-.btn-primary{
+.btn-primary {
   background-color: #ED629A;
   border: none;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
   background-color: #ED3C84;
 }
 
@@ -131,14 +131,20 @@ color: #ED3C84 !important;
 /******JUMBOTRON******/
   .jumbotron {
     background: #000 url("media/girl-doing-dish.jpg");
+<<<<<<< HEAD
     height: 550px;
     width: 100%;
     margin-bottom: 0px !important;
+=======
+    height: 500px;
+    width: 100%;
+    margin-bottom: 0px;
+>>>>>>> 6de5c0a4b3da501d9090cbaf1594b78bea00d885
 }
 
 
 /******FOOTER******/
-#footer{
+#footer {
   height:200px;
   padding: 100px 0px;
 }
