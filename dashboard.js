@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  API_URL = "https://littlehelpers.herokuapp.com/parent/";
+  const API_URL = `https://littlehelpers.herokuapp.com/parent/`;
   $.ajax({
-    url: `${API_URL}2`,
-    headers:{'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNDk4NTk0NzMxLCJleHAiOjE0OTg2MDE5MzF9.4lIV67OwsP8f9btLNoDwFxah_TSkpsExcJoEUsfI7O4`},
+    url: `${API_URL}${localStorage.id}`,
+    headers:{'Authorization': `Bearer ${localStorage.token}`},
     type: 'GET'
   })
   .then(function(data) {
