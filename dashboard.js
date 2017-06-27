@@ -20,6 +20,7 @@ $(document).ready(function(){
   })
   $("#addChild").click(function(){
     var childName = $("#childNameAdd").val();
+    let id = localStorage.id 
     return $.post(`https://littlehelpers.herokuapp.com/parent/${id}/`, childName)
   })
 
