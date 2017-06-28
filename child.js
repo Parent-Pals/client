@@ -52,6 +52,6 @@ $(document).ready(function(){
     $.post('https://littlehelpers.herokuapp.com/parent/{id}/{childID}/task', rewardObject);
   })
   $('.logout').click(function() {
-    window.location.reload(true);
+    
   });
 });
