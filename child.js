@@ -57,6 +57,16 @@ $(document).ready(function(){
     })
   })
 
+  function logOut(){
+      $("#logout").click(function(){
+        console.log('logout')
+        localStorage.removeItem("id");
+        localStorage.removeItem("token");
+        window.location = "/index.html";
+      });
+    }
+    logOut()
+
   $("#addTask").click(function(){
     var taskObject = {
       name: $("taskName").val(),
