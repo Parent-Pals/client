@@ -25,7 +25,7 @@ $(document).ready(function() {
         var childContext = {
           "childName": data[1][i].name,
           "childPoints": data[1][i].points,
-          "childURL": `https://little-helpers-b26e7.firebaseapp.com/child.html/?parent_id=${localStorage.id}&child_id=${data[1][i].id}`
+          "childURL": `/child.html?parent_id=${localStorage.id}&child_id=${data[1][i].id}`
         }
           $("#children").prepend(childTemplate(childContext))
     }
@@ -44,4 +44,14 @@ $(document).ready(function() {
         type: 'DELETE'
       })
     });
-  });
+
+function logOut(){
+    $("#logout").click(function(){
+      console.log('logout')
+      localStorage.removeItem("id");
+      localStorage.removeItem("token");
+      window.location = "/index.html";
+    });
+  }
+  logOut()
+});
