@@ -33,10 +33,13 @@ $(document).ready(function() {
       })
   });
   $("#deleteChild").click(function(){
-    return   $.ajax({
+    return $.ajax({
         url: `${API_URL}2/1`,
         headers:{'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNDk4NTk0NzMxLCJleHAiOjE0OTg2MDE5MzF9.4lIV67OwsP8f9btLNoDwFxah_TSkpsExcJoEUsfI7O4`},
         type: 'DELETE'
       })
     });
+  $('.logout').click(function() {
+    window.location.reload(true);
   });
+});
