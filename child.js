@@ -1,9 +1,15 @@
 $(document).ready(function(){
 
-  var apiUrl = "https://littlehelpers.herokuapp.com/parent/1/5";
+  var API_URL = "https://littlehelpers.herokuapp.com/parent/";
+  let parent_id = parseQueryString(window.location.search).parent_id;
+  let child_id = parseQueryString(window.location.search).child_id;
 
-  $.getJSON(apiUrl).then(function(data){
-    console.log(data);
+  $.ajax({
+    url: `${API_URL}${localStorage.id}/${child_id}`,
+    headers:{'Authorization': `Bearer ${localStorage.token}`},
+    type: 'GET'
+  })
+  .then((data) =>{
 
     for(var i = 0; i < data[1].length; i++){
       var rewardSource = $("#reward-template").html();
@@ -14,6 +20,7 @@ $(document).ready(function(){
       };
       $("#childRewards").prepend(rewardTemplate(rewardContext))
     };
+
 
     for(var i=0; i < data[2].length; i++){
       var taslSource = $("#task-template").html();
@@ -42,14 +49,36 @@ $(document).ready(function(){
       name: $("rewardName").val(),
       point_value: $("rewardPointWorth").val()
     };
-    $.post('https://littlehelpers.herokuapp.com/parent/{id}/{childID}/reward', rewardObject);
-  });
+    $.ajax({
+      url: `${API_URL}${localStorage.id}/${child_id}/reward`,
+      headers:{'Authorization': `Bearer ${localStorage.token}`},
+      type: 'POST',
+      body: rewardObject
+    })
+  })
 
   $("#addTask").click(function(){
-    var rewardObject = {
+    var taskObject = {
       name: $("taskName").val(),
       point_value: $("chorePointWorth").val()
     };
-    $.post('https://littlehelpers.herokuapp.com/parent/{id}/{childID}/task', rewardObject);
+    $.ajax({
+      url: `${API_URL}${localStorage.id}/${child_id}/task`,
+      headers:{'Authorization': `Bearer ${localStorage.token}`},
+      type: 'POST',
+      body: taskObject
+    })
   });
 });
+
+
+function parseQueryString (query) {
+  let queries = {}
+  let parse = query.substring(1).split('&').map(pair => {
+     return pair.split('=');
+   })
+  parse.forEach(pair => {
+    queries[pair[0]] = pair[1]
+  })
+  return queries
+}
