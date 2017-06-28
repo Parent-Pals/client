@@ -32,10 +32,18 @@ $(document).ready(function() {
   });
 
   $("#addChild").click(function(){
+    // event.preventDefault();
     var childName = $("#childNameAdd").val();
-    let id = localStorage.id
-    return $.post(`https://littlehelpers.herokuapp.com/parent/${id}/`, childName)
-  })
+    console.log(childName)
+    var parent_id = localStorage.id;
+    return   $.ajax({
+        url: `${API_URL}${localStorage.id}`,
+        headers:{'Authorization': `Bearer ${localStorage.token}`},
+        type: 'POST',
+        data: {name: childName}
+      })
+      window.location = '/dashboard.html'
+  });
 
   $("#deleteChild").click(function(){
     return   $.ajax({
