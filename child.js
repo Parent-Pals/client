@@ -53,16 +53,14 @@ $(document).ready(function(){
     $.post('https://littlehelpers.herokuapp.com/parent/{id}/{childID}/task', rewardObject);
   });
 
-  $('.button').click(function() {
+  $('.logout').click(function() {
     $.ajax({
       url: "",
       context: document.body,
       success: function(s,x){
-
         $('html[manifest=saveappoffline.appcache]').attr('content', '');
         $(this).html(s);
-        
-      }
+      };
     });
   });
 });
