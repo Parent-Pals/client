@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 $(document).ready(function() {
 
   const API_URL = `https://littlehelpers.herokuapp.com/parent/`;
@@ -10,11 +10,6 @@ $(document).ready(function() {
   })
   .then(function(data) {
     console.log(data)
-=======
-$(document).ready(function(){
-  var apiUrl = `https://littlehelpers.herokuapp.com/parent/${localStorage.id}`;
-  $.getJSON(apiUrl).then(function(data){
->>>>>>> mattsbranch
     var parentSource = $("#parent-template").html();
     var parentTemplate = Handlebars.compile(parentSource);
     var parentContext = {
@@ -35,7 +30,6 @@ $(document).ready(function(){
 
   $("#addChild").click(function(){
     var childName = $("#childNameAdd").val();
-<<<<<<< HEAD
     return   $.ajax({
         url: `${API_URL}${localStorage.id}`,
         headers:{'Authorization': `Bearer ${localStorage.token}`},
@@ -43,11 +37,7 @@ $(document).ready(function(){
         data: {childName}
       })
   });
-=======
-    let id = localStorage.id
-    return $.post(`https://littlehelpers.herokuapp.com/parent/${id}/`, childName)
-  })
->>>>>>> mattsbranch
+
 
   $("#deleteChild").click(function(){
     return   $.ajax({
@@ -57,4 +47,3 @@ $(document).ready(function(){
       })
     });
   });
-});
