@@ -59,16 +59,16 @@
 
     <script id="parent-template" type="text/x-handlebars-template">
       <span class="navbar-text">
-        Welcome back {{parentName}}!
+        welcome back, {{parentName}}!
       </span>
     </script>
 
     <script id="child-template" type="text/x-handlebars-template">
         <div class="col-lg-12 text-center">
           <div class="card blue white-text">
-            <a href="#" class="col-12 text-right white-text">x</a>
+            <a href="" class="col-12 text-right white-text">x</a>
             <div class="card-block">
-              <h1 class="card-title">{{childName}}</h1>
+              <a href="{{childURL}}"><h1 class="card-title text-white">{{childName}}</h1></a>
               <h5>has {{childPoints}} points!</h5>
             </div>
           </div>
