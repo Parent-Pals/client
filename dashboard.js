@@ -41,7 +41,7 @@ $(document).ready(function() {
         type: 'POST',
         data: {name: childName}
       })
-      window.location.reload()
+      .then(window.location.reload())
   });
 
   $("#deleteChild").click(function(){
