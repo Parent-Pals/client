@@ -31,7 +31,8 @@ $(document).ready(function() {
     }
   });
 
-  $("#addChild").click(function(){
+  $("#addChild").click(function(event){
+    event.preventDefault();
     var childName = $("#childNameAdd").val();
     console.log(childName)
     var parent_id = localStorage.id;
@@ -41,7 +42,10 @@ $(document).ready(function() {
         type: 'POST',
         data: {name: childName}
       })
-      .then(window.location.reload())
+      .then(function(result){
+        console.log(result)
+        window.location.reload()
+      })
   });
 
   $("#deleteChild").click(function(){
