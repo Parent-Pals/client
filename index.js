@@ -27,13 +27,16 @@ $(document).ready(function(){
 
   $("#loginButton").click(function(){
     event.preventDefault()
+    console.log('i did it')
     let parent = {
       email: $("#loginEmail").val(),
-      passoword: $("loginPassword").val()
+      password: $("#loginPassword").val()
     }
+    console.log(parent);
     $.post('https://littlehelpers.herokuapp.com/auth/login', parent)
     .then(result => {
-      console.log(result);
+      console.log(result.token);
+
       localStorage.token = result.token;
       localStorage.id = result.id;
       window.location = `/dashboard.html`

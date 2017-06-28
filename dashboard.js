@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var apiUrl = "https://littlehelpers.herokuapp.com/parent/1";
+  var apiUrl = `https://littlehelpers.herokuapp.com/parent/${localStorage.id}`;
   $.getJSON(apiUrl).then(function(data){
     var parentSource = $("#parent-template").html();
     var parentTemplate = Handlebars.compile(parentSource);
@@ -22,7 +22,7 @@ $(document).ready(function(){
   })
   $("#addChild").click(function(){
     var childName = $("#childNameAdd").val();
-    let id = localStorage.id 
+    let id = localStorage.id
     return $.post(`https://littlehelpers.herokuapp.com/parent/${id}/`, childName)
   })
 
