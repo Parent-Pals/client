@@ -116,8 +116,12 @@
     <script id="task-template" type="text/x-handlebars-template">
         <div class="col-lg-12 text-center">
           <div class="card blue white-text">
+<<<<<<< HEAD
             <button class="text-center btn btn-secondary white-text ml-auto" id="deletePoints" data-points='{{id}}'>X</button>
             <button class="text-center btn btn-secondary white-text ml-auto" id="addPoints" data-points='{{id}}' data-taskPoints='{{taskPoints}}'>&#10003;</button>
+=======
+            <a href="#" class="col-12 text-right white-text" id="addPoints" data-points='{{id}}' data-taskpoints='{{taskPoints}}'>&#10003;</a>
+>>>>>>> new-reward
             <div class="card-block">
               <h1 class="card-title">{{taskName}}</h1>
               <h3 class="card-text">Earn {{taskPoints}} points!</h3>
@@ -127,7 +131,7 @@
     </script>
 
     <script id="child-template" type="text/x-handlebars-template">
-        <h1>{{childName}} has {{childPoints}} points!</h1>
+        <h1 id="child-points" data-points="{{childPoints}}">{{childName}} has {{childPoints}} points!</h1>
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" charset="utf-8"></script>
