@@ -102,6 +102,32 @@ $(document).ready(function() {
     }
   });
 
+  $(document).on('click', '#deleteReward', function(){
+    let rewardID = $(this).data('points');
+    $.ajax({
+      url: `${API_URL}${localStorage.id}/${child_id}/reward/${rewardID}`,
+      headers: {
+        'Authorization': `Bearer ${localStorage.token}`
+      },
+      type: 'DELETE'
+    }).then(results => {
+      window.location.reload();
+    })
+  })
+
+  $(document).on('click', '#deletePoints', function(){
+    let taskID = $(this).data('points');
+    $.ajax({
+      url: `${API_URL}${localStorage.id}/${child_id}/task/${taskID}`,
+      headers: {
+        'Authorization': `Bearer ${localStorage.token}`
+      },
+      type: 'DELETE'
+    }).then(results => {
+      window.location.reload();
+    })
+  })
+
 
   $(document).on('click', '#addPoints', function() {
     let taskID = $(this).data('points');
