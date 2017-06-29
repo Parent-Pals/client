@@ -9,7 +9,6 @@ $(document).ready(function() {
     type: 'GET'
   })
   .then(function(data) {
-    console.log(data)
     for(var i =0; i <data[0].length; i++){
     var parentSource = $("#parent-template").html();
     var parentTemplate = Handlebars.compile(parentSource);
@@ -25,28 +24,53 @@ $(document).ready(function() {
         var childContext = {
           "childName": data[1][i].name,
           "childPoints": data[1][i].points,
-          "childURL": `https://little-helpers-b26e7.firebaseapp.com/child.html/?parent_id=${localStorage.id}&child_id=${data[1][i].id}`
+          "id": data[1][i].id,
+          "childURL": `/child.html?parent_id=${localStorage.id}&child_id=${data[1][i].id}`
         }
           $("#children").prepend(childTemplate(childContext))
     }
+
+    $(document).on("click", "#deleteChildButton", function(){
+      var deleteChildId = $(this).data("child")
+      console.log(deleteChildId)
+      return   $.ajax({
+          url: `${API_URL}${localStorage.id}/${deleteChildId}`,
+          headers:{'Authorization': `Bearer ${localStorage.token}`},
+          type: 'DELETE'
+        })
+        .then(function(result){
+            console.log(result)
+            window.location.reload()
+          })
+    });
   });
 
-  $("#addChild").click(function(){
+  $("#addChild").click(function(event){
+    event.preventDefault();
     var childName = $("#childNameAdd").val();
+    console.log(childName)
+    var parent_id = localStorage.id;
     return   $.ajax({
         url: `${API_URL}${localStorage.id}`,
         headers:{'Authorization': `Bearer ${localStorage.token}`},
         type: 'POST',
-        data: {childName}
+        data: {name: childName}
+      })
+      .then(function(result){
+        console.log(result)
+        window.location.reload()
       })
   });
 
 
-  $("#deleteChild").click(function(){
-    return   $.ajax({
-        url: `${API_URL}${localStorage.id}/`,
-        headers:{'Authorization': `Bearer ${localStorage.token}`},
-        type: 'DELETE'
-      })
+function logOut(){
+    $("#logout").click(function(){
+      console.log('logout')
+      localStorage.removeItem("id");
+      localStorage.removeItem("token");
+      window.location = "/index.html";
     });
-  });
+  }
+  logOut()
+
+});

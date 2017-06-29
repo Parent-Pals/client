@@ -44,29 +44,49 @@ $(document).ready(function(){
     $('#childName').append(childTemplate(childContext));
   });
 
-  $("#addReward").click(function(){
+  $("#addReward").click(function(event) {
+    event.preventDefault();
     var rewardObject = {
-      name: $("rewardName").val(),
-      point_value: $("rewardPointWorth").val()
+      name: $("#rewardName").val(),
+      point_value: $("#rewardPointWorth").val()
     };
-    $.ajax({
-      url: `${API_URL}${localStorage.id}/${child_id}/reward`,
+    return $.ajax({
+      url: `${API_URL}reward/${localStorage.id}/${child_id}`,
       headers:{'Authorization': `Bearer ${localStorage.token}`},
       type: 'POST',
       body: rewardObject
     })
+      .then(function(result) {
+        console.log(result);
+        window.location.reload();
+      })
   })
 
-  $("#addTask").click(function(){
+  function logOut(){
+      $("#logout").click(function(){
+        console.log('logout')
+        localStorage.removeItem("id");
+        localStorage.removeItem("token");
+        window.location = "/index.html";
+      });
+    }
+    logOut()
+
+  $("#addTask").click(function(event) {
+    event.preventDefault();
     var taskObject = {
-      name: $("taskName").val(),
-      point_value: $("chorePointWorth").val()
+      name: $("#taskName").val(),
+      point_value: $("#taskPointWorth").val()
     };
-    $.ajax({
-      url: `${API_URL}${localStorage.id}/${child_id}/task`,
+    return $.ajax({
+      url: `${API_URL}task/${localStorage.id}/${child_id}/`,
       headers:{'Authorization': `Bearer ${localStorage.token}`},
       type: 'POST',
       body: taskObject
+    })
+      .then(function(result) {
+        console.log(result);
+        window.location.reload();
     })
   });
 });
