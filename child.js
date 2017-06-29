@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  var API_URL = "http://localhost:3000/parent/";
+  var API_URL = "https://littlehelpers.herokuapp.com/parent/";
   let parent_id = parseQueryString(window.location.search).parent_id;
   let child_id = parseQueryString(window.location.search).child_id;
 
@@ -9,8 +9,7 @@ $(document).ready(function(){
     headers:{'Authorization': `Bearer ${localStorage.token}`},
     type: 'GET'
   })
-  .then((data) =>{
-
+  .then((data) => {
     for(var i = 0; i < data[1].length; i++){
       var rewardSource = $("#reward-template").html();
       var rewardTemplate = Handlebars.compile(rewardSource);
@@ -62,6 +61,7 @@ $(document).ready(function(){
         window.location.reload();
     });
   })
+
   $(document).on('click', '#redeemReward', function() {
     let redeemRewardId = $(this).data('reward');
     let redeemRewardPoints = $(this).data('rewardpoints1');

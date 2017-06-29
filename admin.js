@@ -1,12 +1,10 @@
 $(document).ready(function(){
     var API_URL = "https://littlehelpers.herokuapp.com/admin/1";
-
     $.ajax({
     url: `${API_URL}`,
     headers:{'Authorization': `Bearer ${localStorage.token}`},
     type: 'GET'
   })
-
 
 
   function logOut(){
