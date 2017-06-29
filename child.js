@@ -23,7 +23,7 @@ $(document).ready(function(){
 
 
     for(var i=0; i < data[2].length; i++){
-      var taslSource = $("#task-template").html();
+      var taskSource = $("#task-template").html();
       var taskTemplate = Handlebars.compile(taskSource);
       var taskContext = {
         "taskName": data[2][i].name,

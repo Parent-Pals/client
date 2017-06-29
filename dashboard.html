@@ -14,7 +14,7 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/dashboard.html">
       <img src="media/logo.png" width="225" height="60" class="d-inline-block align-top" alt="">
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,6 +26,8 @@
       </div>
     </nav>
     <main>
+      <div class="green small-div text-center white-text col-lg-12" id="parentName">
+      </div>
       <div class="row no-gutters" id="children">
         <a href class="col-lg-12 text-center" data-toggle="modal" data-target="#addChildModal">
           <div class="card grey white-text">
@@ -57,15 +59,15 @@
   </main>
 
     <script id="parent-template" type="text/x-handlebars-template">
-      <span class="navbar-text">
-        welcome back, {{parentName}}!
-      </span>
+      <h1>
+        Hi {{parentName}}!
+      </h1>
     </script>
 
     <script id="child-template" type="text/x-handlebars-template">
         <div class="col-lg-12 text-center">
           <div class="card blue white-text">
-            <a class="col-12 text-right white-text" id='deleteChildButton' data-child="{{id}}">x</a>
+            <button class="text-center btn btn-secondary white-text ml-auto" id='deleteChildButton' data-child="{{id}}">x</button>
             <div class="card-block">
               <a href="{{childURL}}"><h1 class="card-title text-white">{{childName}}</h1></a>
               <h5>has {{childPoints}} points!</h5>

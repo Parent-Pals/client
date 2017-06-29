@@ -16,7 +16,7 @@ $(document).ready(function() {
       "parentName": data[0][0].name
     };
 
-    $("#navbarSupportedContent").prepend(parentTemplate(parentContext))
+    $("#parentName").append(parentTemplate(parentContext))
 }
     var childSource   = $("#child-template").html();
     var childTemplate = Handlebars.compile(childSource);

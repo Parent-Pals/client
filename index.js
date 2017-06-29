@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("#createAccountButton").click(function(){
+  $("#createAccountButton").click(function(event){
     event.preventDefault()
     var signUp = {
       password: $("#password").val(),
@@ -7,42 +7,45 @@ $(document).ready(function(){
       name: $("#name").val(),
       email: $("#email").val()
     }
-    console.log(signUp);
-    if(signUp.password != signUp.passwordConfirmation){
+
+    if (signUp.password != signUp.passwordConfirmation){
       $(".passwordError").css('display', 'block')
     } else {
-      $.post('https://littlehelpers.herokuapp.com/auth/register', signUp)
-      .then(result=>{
-        console.log(result);
-        localStorage.token = result.token;
-        localStorage.id = result.id;
-        window.location = `/dashboard.html`
-
-      }).catch(error =>{
-        console.error(error)
+      $.ajax({
+        type: "POST",
+        url: 'https://littlehelpers.herokuapp.com/auth/register', 
+        data: signUp,
+        success: function (result){
+          console.log(result);
+          localStorage.token = result.token;
+          localStorage.id = result.id;
+          window.location = `/dashboard.html`
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+          window.location = '/error.html';
+          console.log("error")
+          console.error(error)
           showErrorMessage(error.responseJSON.message)
-      })
-    }
-  });
-
-  $("#loginButton").click(function(){
+        }
+     })
+  };
+})
+  $("#loginButton").click(function(event){
     event.preventDefault()
-    console.log('i did it')
     let parent = {
       email: $("#loginEmail").val(),
       password: $("#loginPassword").val()
     }
-    console.log(parent);
+    console.log(parent)
     $.post('https://littlehelpers.herokuapp.com/auth/login', parent)
-    .then(result => {
-      console.log(result.token);
-
-      localStorage.token = result.token;
-      localStorage.id = result.id;
-      window.location = `/dashboard.html`
-    }).catch(error => {
-      console.error(error)
+      .then(result => {
+        console.log(result.token);
+        localStorage.token = result.token;
+        localStorage.id = result.id;
+        window.location = `/dashboard.html`
+      }).catch(error => {
+        console.error(error)
         showErrorMessage(error.responseJSON.message)
+      })
     })
-  })
 })
