@@ -29,14 +29,22 @@
     </nav>
     <main class="container-fluid">
       <div class="row align-items-center">
-        <div class=" blue col-lg-12 col-sm-12 " id="tasks">
+        <div class=" blue col-lg-12 col-sm-12">
           <div class="text-center container col-lg-6">
             <h1 class="white-text">Users</h1>
-            
+              <div id="users">
+
+              </div>
           </div>
         </div>
         </div>
     </main>
+
+     <script id="admin-template" type="text/x-handlebars-template">
+        <h3 class="white-text">{{user}}</h3>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" charset="utf-8"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="admin.js" charset="utf-8"></script>
