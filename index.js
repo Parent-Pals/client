@@ -11,7 +11,7 @@ $(document).ready(function(){
     if(signUp.password != signUp.passwordConfirmation){
       $(".passwordError").css('display', 'block')
     } else {
-      $.post('https://littlehelpers.herokuapp.com/auth/register', signUp)
+      $.post('http://localhost:3000/auth/register', signUp)
       .then(result=>{
         console.log(result);
         localStorage.token = result.token;
@@ -33,7 +33,7 @@ $(document).ready(function(){
       password: $("#loginPassword").val()
     }
     console.log(parent);
-    $.post('https://littlehelpers.herokuapp.com/auth/login', parent)
+    $.post('http://localhost:3000/auth/login', parent)
     .then(result => {
       console.log(result.token);
 

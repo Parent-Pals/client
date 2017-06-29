@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  var API_URL = "https://littlehelpers.herokuapp.com/parent/";
+  var API_URL = "http://localhost:3000/parent/";
   let parent_id = parseQueryString(window.location.search).parent_id;
   let child_id = parseQueryString(window.location.search).child_id;
 
@@ -63,23 +63,26 @@ $(document).ready(function(){
     });
   })
   $(document).on('click', '#redeemReward', function() {
-    var redeemRewardId = $(this).data('reward');
-    var redeemRewardPoints = $(this).data('rewardPoints');
+    let redeemRewardId = $(this).data('reward');
+    let redeemRewardPoints = $(this).data('rewardpoints1');
+    console.log(redeemRewardPoints);
+    console.log(`${API_URL}${localStorage.id}/${child_id}/`);
     $.ajax({
       url: `${API_URL}${localStorage.id}/${child_id}/`,
       headers: {'Authorization': `Bearer ${localStorage.token}`},
-      dataType: 'json',
-      contentType: 'application/json; charset=utf-8',
       type: 'PUT',
-      body: JSON.stringify({"points": 1000})
-      })
-      // .then(function() {
-      //   $.ajax({
-      //     url: `${API_URL}${localStorage.id}/child/${child_id}/reward/${redeemRewardId}`,
-      //     headers: {'Authorization': `Bearer ${localStorage.token}`},
-      //     type: 'DELETE'
-      //   })
-      // })
+      data: {"points":redeemRewardPoints}
+    }).then(response => {
+      console.log(response);
+    })
+  //     .then(function() {
+  //       $.ajax({
+  //         url: `${API_URL}${localStorage.id}/child/${child_id}/reward/${redeemRewardId}`,
+  //         headers: {'Authorization': `Bearer ${localStorage.token}`},
+  //         type: 'DELETE'
+  //       })
+  //     })
+  // })
   })
 
   function logOut(){

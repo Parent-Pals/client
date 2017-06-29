@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
-  const API_URL = `https://littlehelpers.herokuapp.com/parent/`;
+  const API_URL = `http://localhost:3000/parent/`;
 
   $.ajax({
     url: `${API_URL}${localStorage.id}`,
