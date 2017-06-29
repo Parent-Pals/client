@@ -11,6 +11,7 @@ $(document).ready(function(){
     if (signUp.password != signUp.passwordConfirmation){
       $(".passwordError").css('display', 'block')
     } else {
+<<<<<<< HEAD
       $.ajax({
         type: "POST",
         url: 'https://littlehelpers.herokuapp.com/auth/register', 
@@ -25,6 +26,17 @@ $(document).ready(function(){
           window.location = '/error.html';
           console.log("error")
           console.error(error)
+=======
+      $.post('http://localhost:3000/auth/register', signUp)
+      .then(result=>{
+        console.log(result);
+        localStorage.token = result.token;
+        localStorage.id = result.id;
+        window.location = `/dashboard.html`
+
+      }).catch(error =>{
+        console.error(error)
+>>>>>>> origin/new-reward
           showErrorMessage(error.responseJSON.message)
         }
      })
@@ -36,6 +48,7 @@ $(document).ready(function(){
       email: $("#loginEmail").val(),
       password: $("#loginPassword").val()
     }
+<<<<<<< HEAD
     console.log(parent)
     $.post('https://littlehelpers.herokuapp.com/auth/login', parent)
       .then(result => {
@@ -45,6 +58,18 @@ $(document).ready(function(){
         window.location = `/dashboard.html`
       }).catch(error => {
         console.error(error)
+=======
+    console.log(parent);
+    $.post('http://localhost:3000/auth/login', parent)
+    .then(result => {
+      console.log(result.token);
+
+      localStorage.token = result.token;
+      localStorage.id = result.id;
+      window.location = `/dashboard.html`
+    }).catch(error => {
+      console.error(error)
+>>>>>>> origin/new-reward
         showErrorMessage(error.responseJSON.message)
       })
     })

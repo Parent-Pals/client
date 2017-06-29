@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  var API_URL = "https://littlehelpers.herokuapp.com/parent/";
+  var API_URL = "http://localhost:3000/parent/";
   let parent_id = parseQueryString(window.location.search).parent_id;
   let child_id = parseQueryString(window.location.search).child_id;
 
@@ -16,7 +16,8 @@ $(document).ready(function(){
       var rewardTemplate = Handlebars.compile(rewardSource);
       var rewardContext = {
         "rewardName": data[1][i].name,
-        "rewardPoints": data[1][i].point_value
+        "rewardPoints": data[1][i].point_value,
+        "id": data[1][i].id
       };
       $("#childRewards").prepend(rewardTemplate(rewardContext))
     };
@@ -27,7 +28,8 @@ $(document).ready(function(){
       var taskTemplate = Handlebars.compile(taskSource);
       var taskContext = {
         "taskName": data[2][i].name,
-        "taskPoints": data[2][i].point_value
+        "taskPoints": data[2][i].point_value,
+        "id": data[2][i].id
       };
       $("#childTasks").prepend(taskTemplate(taskContext))
     };
@@ -50,16 +52,37 @@ $(document).ready(function(){
       name: $("#rewardName").val(),
       point_value: $("#rewardPointWorth").val()
     };
-    return $.ajax({
-      url: `${API_URL}reward/${localStorage.id}/${child_id}`,
-      headers:{'Authorization': `Bearer ${localStorage.token}`},
-      type: 'POST',
-      body: rewardObject
-    })
+    console.log(rewardObject);
+    $.post({
+      url: `${API_URL}${localStorage.id}/child/${child_id}/reward/`,
+      headers:{'Authorization': `Bearer ${localStorage.token}`}
+    }, rewardObject)
       .then(function(result) {
         console.log(result);
         window.location.reload();
-      })
+    });
+  })
+  $(document).on('click', '#redeemReward', function() {
+    let redeemRewardId = $(this).data('reward');
+    let redeemRewardPoints = $(this).data('rewardpoints1');
+    console.log(redeemRewardPoints);
+    console.log(`${API_URL}${localStorage.id}/${child_id}/`);
+    $.ajax({
+      url: `${API_URL}${localStorage.id}/${child_id}/`,
+      headers: {'Authorization': `Bearer ${localStorage.token}`},
+      type: 'PUT',
+      data: {"points":redeemRewardPoints}
+    }).then(response => {
+      console.log(response);
+    })
+  //     .then(function() {
+  //       $.ajax({
+  //         url: `${API_URL}${localStorage.id}/child/${child_id}/reward/${redeemRewardId}`,
+  //         headers: {'Authorization': `Bearer ${localStorage.token}`},
+  //         type: 'DELETE'
+  //       })
+  //     })
+  // })
   })
 
   function logOut(){
@@ -78,12 +101,12 @@ $(document).ready(function(){
       name: $("#taskName").val(),
       point_value: $("#taskPointWorth").val()
     };
-    return $.ajax({
-      url: `${API_URL}task/${localStorage.id}/${child_id}/`,
-      headers:{'Authorization': `Bearer ${localStorage.token}`},
-      type: 'POST',
-      body: taskObject
-    })
+    console.log(taskObject);
+    console.log(`${API_URL}${localStorage.id}/${child_id}/task/`);
+    $.post({
+      url: `${API_URL}${localStorage.id}/${child_id}/task/`,
+      headers:{'Authorization': `Bearer ${localStorage.token}`}
+    }, taskObject)
       .then(function(result) {
         console.log(result);
         window.location.reload();
