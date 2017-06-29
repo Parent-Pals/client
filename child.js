@@ -16,18 +16,20 @@ $(document).ready(function(){
       var rewardTemplate = Handlebars.compile(rewardSource);
       var rewardContext = {
         "rewardName": data[1][i].name,
-        "rewardPoints": data[1][i].point_value
+        "rewardPoints": data[1][i].point_value,
+        "id": data[1][i].id
       };
       $("#childRewards").prepend(rewardTemplate(rewardContext))
     };
 
 
     for(var i=0; i < data[2].length; i++){
-      var taslSource = $("#task-template").html();
+      var taskSource = $("#task-template").html();
       var taskTemplate = Handlebars.compile(taskSource);
       var taskContext = {
         "taskName": data[2][i].name,
-        "taskPoints": data[2][i].point_value
+        "taskPoints": data[2][i].point_value,
+        "id": data[2][i].id
       };
       $("#childTasks").prepend(taskTemplate(taskContext))
     };
@@ -50,16 +52,34 @@ $(document).ready(function(){
       name: $("#rewardName").val(),
       point_value: $("#rewardPointWorth").val()
     };
-    return $.ajax({
-      url: `${API_URL}reward/${localStorage.id}/${child_id}`,
-      headers:{'Authorization': `Bearer ${localStorage.token}`},
-      type: 'POST',
-      body: rewardObject
-    })
+    console.log(rewardObject);
+    $.post({
+      url: `${API_URL}${localStorage.id}/child/${child_id}/reward/`,
+      headers:{'Authorization': `Bearer ${localStorage.token}`}
+    }, rewardObject)
       .then(function(result) {
         console.log(result);
         window.location.reload();
+    });
+  })
+  $(document).on('click', '#redeemReward', function() {
+    var redeemRewardId = $(this).data('reward');
+    var redeemRewardPoints = $(this).data('rewardPoints');
+    $.ajax({
+      url: `${API_URL}${localStorage.id}/${child_id}/`,
+      headers: {'Authorization': `Bearer ${localStorage.token}`},
+      dataType: 'json',
+      contentType: 'application/json; charset=utf-8',
+      type: 'PUT',
+      body: JSON.stringify({"points": 1000})
       })
+      // .then(function() {
+      //   $.ajax({
+      //     url: `${API_URL}${localStorage.id}/child/${child_id}/reward/${redeemRewardId}`,
+      //     headers: {'Authorization': `Bearer ${localStorage.token}`},
+      //     type: 'DELETE'
+      //   })
+      // })
   })
 
   function logOut(){
@@ -78,12 +98,12 @@ $(document).ready(function(){
       name: $("#taskName").val(),
       point_value: $("#taskPointWorth").val()
     };
-    return $.ajax({
-      url: `${API_URL}task/${localStorage.id}/${child_id}/`,
-      headers:{'Authorization': `Bearer ${localStorage.token}`},
-      type: 'POST',
-      body: taskObject
-    })
+    console.log(taskObject);
+    console.log(`${API_URL}${localStorage.id}/${child_id}/task/`);
+    $.post({
+      url: `${API_URL}${localStorage.id}/${child_id}/task/`,
+      headers:{'Authorization': `Bearer ${localStorage.token}`}
+    }, taskObject)
       .then(function(result) {
         console.log(result);
         window.location.reload();
