@@ -13,7 +13,9 @@ A task-reward tracker geared towards young children and their parents.
 # How are we solving it?
 * Little Helpers is a task-reward tracking app usable by both parents and their children, so that the kids can see what they're working for and what they need to do to achieve it. The parents, meanwhile, can add and remove tasks and rewards as necessary.
 
-# [Demo](https://little-helpers-b26e7.firebaseapp.com/)
+# [Live Demo](https://little-helpers-b26e7.firebaseapp.com/)
+# [Demo Video](https://www.youtube.com/watch?v=ZSUCGJw6G80)
+# [Presentation](http://slides.com/marlenabaker/little-helpers)
 
 # Technologies
 * jQuery
