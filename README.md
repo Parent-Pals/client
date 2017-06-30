@@ -15,11 +15,12 @@ A task-reward tracker geared towards young children and their parents.
 
 ## [Live Demo](https://little-helpers-b26e7.firebaseapp.com/)
 ## [Demo Video](https://youtu.be/WJQoF72l3bY)
-### [Presentation](http://slides.com/marlenabaker/little-helpers)
+## [Presentation](http://slides.com/marlenabaker/little-helpers)
 
 # Technologies
 * jQuery
 * HTML
+* Node.js
 * Knex
 * Postgres
 * Firebase
