@@ -53,7 +53,6 @@ $(document).ready(function() {
       name: $("#rewardName").val(),
       point_value: $("#rewardPointWorth").val()
     };
-    console.log(rewardObject);
     $.post({
         url: `${API_URL}${localStorage.id}/child/${child_id}/reward/`,
         headers: {
@@ -61,7 +60,6 @@ $(document).ready(function() {
         }
       }, rewardObject)
       .then(function(result) {
-        console.log(result);
         window.location.reload();
       });
   })
@@ -74,8 +72,6 @@ $(document).ready(function() {
     if (redeemRewardPoints > childPoints) {
       alert("Not Enough Points!")
     } else {
-      console.log();
-      console.log(`${API_URL}${localStorage.id}/${child_id}/`);
       $.ajax({
           url: `${API_URL}${localStorage.id}/${child_id}/`,
           headers: {
@@ -85,10 +81,7 @@ $(document).ready(function() {
           data: {
             "points": sendPoints
           }
-        }).then(response => {
-          console.log(response);
-        })
-        .then(function() {
+        }).then(function() {
           $.ajax({
             url: `${API_URL}${localStorage.id}/${child_id}/reward/${redeemRewardId}`,
             headers: {
@@ -143,10 +136,7 @@ $(document).ready(function() {
           data: {
             "points": sendPoints
           }
-        }).then(response => {
-          console.log(response);
-        })
-        .then(function() {
+        }).then(function() {
           $.ajax({
             url: `${API_URL}${localStorage.id}/${child_id}/task/${taskID}`,
             headers: {
@@ -162,7 +152,6 @@ $(document).ready(function() {
 
   function logOut() {
     $("#logout").click(function() {
-      console.log('logout')
       localStorage.removeItem("id");
       localStorage.removeItem("token");
       window.location = "/index.html";
@@ -176,8 +165,6 @@ $(document).ready(function() {
       name: $("#taskName").val(),
       point_value: $("#taskPointWorth").val()
     };
-    console.log(taskObject);
-    console.log(`${API_URL}${localStorage.id}/${child_id}/task/`);
     $.post({
         url: `${API_URL}${localStorage.id}/${child_id}/task/`,
         headers: {
@@ -185,7 +172,6 @@ $(document).ready(function() {
         }
       }, taskObject)
       .then(function(result) {
-        console.log(result);
         window.location.reload();
       });
   });

@@ -10,14 +10,14 @@ $(document).ready(function() {
   })
   .then(function(data) {
     for(var i =0; i <data[0].length; i++){
-    var parentSource = $("#parent-template").html();
-    var parentTemplate = Handlebars.compile(parentSource);
-    var parentContext = {
-      "parentName": data[0][0].name
-    };
+      var parentSource = $("#parent-template").html();
+      var parentTemplate = Handlebars.compile(parentSource);
+      var parentContext = {
+        "parentName": data[0][0].name
+      };
 
-    $("#parentName").append(parentTemplate(parentContext))
-}
+      $("#parentName").append(parentTemplate(parentContext))
+    }
     var childSource   = $("#child-template").html();
     var childTemplate = Handlebars.compile(childSource);
     for(var i=0; i < data[1].length; i++){
@@ -32,14 +32,12 @@ $(document).ready(function() {
 
     $(document).on("click", "#deleteChildButton", function(){
       var deleteChildId = $(this).data("child")
-      console.log(deleteChildId)
       return   $.ajax({
           url: `${API_URL}${localStorage.id}/${deleteChildId}`,
           headers:{'Authorization': `Bearer ${localStorage.token}`},
           type: 'DELETE'
         })
         .then(function(result){
-            console.log(result)
             window.location.reload()
           })
     });
@@ -48,7 +46,6 @@ $(document).ready(function() {
   $("#addChild").click(function(event){
     event.preventDefault();
     var childName = $("#childNameAdd").val();
-    console.log(childName)
     var parent_id = localStorage.id;
     return   $.ajax({
         url: `${API_URL}${localStorage.id}`,
@@ -57,7 +54,6 @@ $(document).ready(function() {
         data: {name: childName}
       })
       .then(function(result){
-        console.log(result)
         window.location.reload()
       })
   });
@@ -65,7 +61,6 @@ $(document).ready(function() {
 
 function logOut(){
     $("#logout").click(function(){
-      console.log('logout')
       localStorage.removeItem("id");
       localStorage.removeItem("token");
       window.location = "/index.html";

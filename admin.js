@@ -6,7 +6,6 @@ $(document).ready(function(){
     headers:{'Authorization': `Bearer ${localStorage.token}`},
     type: 'GET'
   }).then(function(data){
-    console.log(data)
     for(var i=0; i<data.length; i++){
       var adminSource = $("#admin-template").html();
       var adminTemplate = Handlebars.compile(adminSource);
@@ -19,7 +18,6 @@ $(document).ready(function(){
 
   function logOut(){
       $("#logout").click(function(){
-        console.log('logout')
         localStorage.removeItem("id");
         localStorage.removeItem("token");
         window.location = "/index.html";
